@@ -1,0 +1,140 @@
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
+@import url("pure-min.less");
+/* ==================================
+	VARS
+================================== */
+
+@font: #333;
+@positive: rgb(28, 184, 65);
+@negative: rgb(202, 60, 60);
+@lines: #efefef;
+
+
+
+
+/* ==================================
+	GENERAL
+================================== */
+
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+	font-family: "Bitter", Georgia, Times, "Times New Roman", serif;
+}
+
+.pure-g > div {
+	box-sizing: border-box;
+}
+
+.l-box {
+	padding: 1em;
+}
+
+.sans-serif {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.centered {
+	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0 1em;
+}
+
+h1 {
+	font-weight: 300;
+	.sans-serif;
+	text-align: center;
+}
+
+a {
+	color: lighten(@font, 20%);
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+footer {
+	text-align: center;
+}
+
+.loading {
+	text-align: center;
+	font-style: italic;
+	margin: 2em 0;
+}
+
+
+
+/* ==================================
+	TRAINS
+================================== */
+
+.trains {
+	list-style: none;
+	padding-left: 0;
+	border-top: 1px solid @lines;
+	margin: 2em 0;
+}
+
+.trains__item {
+	border-bottom: 1px solid @lines;
+	padding: 0.75em 0;
+	line-height: 1em;
+	position: relative;
+
+	div {
+		box-sizing: border-box;
+		margin: 0.25em 0;
+	}
+
+	span {
+		box-sizing: border-box;
+	}
+}
+
+.trains__item__time {
+	position: relative;
+	padding-left: 2em;
+	margin-right: 7%;
+	color: lighten(@font, 25%);
+	
+	&:after {
+		content: " ";
+		position: absolute;
+		left: 0;
+		top: 50%;
+		margin-top: -0.35em;
+		height: 0.5em;
+		width: 0.5em;
+		border-radius: 0.5em;
+		background: @positive;
+	}
+}
+
+.trains__item--delayed .trains__item__time:after {
+	background: @negative;
+}
+
+.trains__item__delay {
+	color: @positive;
+}
+
+.trains__item--delayed .trains__item__delay {
+	color: @negative;
+}
+
+@media (max-width: 440px) {
+	.trains__item {
+		padding-left: 2em;
+	}
+
+	.trains__item__time {
+		margin-right: 0;
+		padding-left: 0;
+		position: static;
+	}
+}

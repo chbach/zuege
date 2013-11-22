@@ -1,0 +1,41 @@
+doctype html
+html ng-app="wfb"
+	head
+		meta charset="utf-8"
+		title WFB72
+
+		meta content="" name="description"
+		meta content="" name="author"
+		meta content="width=device-width,initial-scale=1.0" name="viewport"
+
+		== css "wfb"
+
+		== js "angular.min", "wfb.min"
+
+	body ng-controller="MainCtrl"
+		section.centered
+			h1 Züge ab Horn-Bad Meinberg
+
+			p.loading ng-hide="trains.length > 0"
+				| Crunching latest data...
+
+			ul.trains ng-show="trains.length > 0"
+				li.trains__item.pure-g-r ng-repeat="train in trains" ng-class="{'trains__item--delayed': isDelayed(train)}"
+					div.pure-u-2-3
+						span.trains__item__time
+							| {{ train.departure }} 
+						span.trains__item__to
+							| Nach {{ train.to }} 
+					div.trains__item__delay.pure-u-1-3
+						| {{ train.delay }}
+						span ng-hide="isDelayed(train)" pünktlich
+			footer
+				small 
+					| Ein Projekt von Christoph Bach 
+					br /
+					| Daten von 
+					a> href="http://www.westfalenbahn.de" westfalenbahn.de 
+					| | 
+					a< href="http://christoph-bach.net/impressum.html" Impressum
+
+
