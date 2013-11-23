@@ -9,7 +9,6 @@ class ScheduleParser
 
 	def parse!
 		time = DateTime.now
-		puts time
 		agent = Mechanize.new
 		agent.user_agent_alias = 'Mac Safari'
 
