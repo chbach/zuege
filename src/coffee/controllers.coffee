@@ -1,7 +1,6 @@
 angular.module("wfb").controller 'MainCtrl', ($scope, $http) ->
 
 	success = (data) -> 
-		console.log data
 		$scope.trains = data
 
 	$http.get('/data').success success
